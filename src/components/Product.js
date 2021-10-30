@@ -11,14 +11,14 @@ const MIN_RATING=1;
 function Product({ id, title, price, description, category, image }) {
     const [rating] = useState(Math.floor(Math.random() * (MAX_RATING - MIN_RATING + 1)) + MIN_RATING);
     const [hasPrime] = useState(Math.random() < 0.5);
-    const indianPrice = parseInt(price) * 75;
+    const [indianPrice] = useState(parseInt(price) * 75);
     const dispatch = useDispatch();
     
     const addItem = () => {
         const product ={
            id,
            title,
-           price,
+           indianPrice,
            rating,
            description,
            category,
